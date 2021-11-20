@@ -1,0 +1,103 @@
+{% extends 'lostandfound/base.html' %}
+{% block body %}
+{% load static %}
+
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+
+<style type="text/css">
+  
+ h1
+ {
+   text-align: center;
+   margin-top: 5vw;
+   font-family: 'Arial';
+   font-size: 35px;
+ }
+
+</style>
+
+
+<h1>Lost Persons</h1>
+<hr>
+
+
+
+
+
+{% for r in reports %}
+
+<div class="ui link  cards" >
+  <div class="card" style="width: 40vw; margin-left: 30vw;">
+
+       
+
+    <div class="image" style="display: flex; justify-content: center;">
+
+      {% if r.per_picture_lost %}
+        <img class="rounded-circle account-img" src="{{ r.per_picture_lost.url }}" style="width: 100%;">
+      {% else %}
+                <p>No picture</p>
+      {% endif %}    
+    </div>
+    <div class="content">
+      <div class="header" style="text-align:center;">{{ r.per_name_lost }}</div>
+      {% if r.per_reward_lost %}
+      <div class="header">Reward (BDT): {{ r.per_reward_lost }}</div>
+      {% endif %} 
+       <div class="gender">
+         <div class="description">
+          <h3>
+               Age: {{ r.per_age_lost }}. &nbsp;&nbsp;&nbsp;
+               {{ r.per_gender_lost }}
+
+          </h3>
+       
+
+      </div>
+      </div>
+      <div class="meta">
+        <a>Last seen on {{ r.per_date_lost }}.</a>
+        <a>Location: {{ r.per_location_lost }}.</a>
+      </div>
+      <div class="description">
+        {{ r.per_description_lost }}
+      </div>
+    </div>
+    <div class="extra content">
+     
+      <span>
+        <i class="user icon"></i>
+        <a> Please Contact </a>
+        <br>
+        <br>
+        <div class="meta">
+        <a>Name: {{ r.uploader.first_name }} {{ r.uploader.last_name }}</a>
+        <br><br>
+      </div>
+        <div class="meta">
+        <a>Email: {{ r.uploader.email }}</a>
+        <br><br>
+      </div>
+        <div class="meta">
+        <a>Phone: {{ r.per_number_lost }}</a>
+      </div>
+
+      <span class="right floated">
+        Posted on {{ r.per_post_date_lost }}
+      </span>
+        
+      </span>
+    </div>
+  </div>
+
+
+</div>
+
+ 
+  {% endfor %}  
+
+
+
+{% endblock body %}

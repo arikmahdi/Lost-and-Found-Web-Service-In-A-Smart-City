@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Report Found Pet</title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<style type="text/css">
+
+body
+{
+	height: 125vh; 
+	display: flex;  
+    background-color: rgb(240, 240, 240);
+
+}
+
+
+.field1, .field4 ,
+{
+  display: flex;
+  
+}
+
+
+.field1, .field2 , .field3, .field4,  .field5, .field6
+{
+  margin-bottom: 2vw;
+  font-size: 14px;
+}
+
+
+}
+
+
+
+</style>
+
+
+
+<body>
+
+	
+<div style="margin-right: 20vw; margin-left: 1vw; margin-top: 1vw">
+		<h6><a href="{% url 'home-page-2' %}" class="w3-button w3-green w3-padding-large w3-large  w3-left">Cancel</a></h6>
+	</div>	
+	
+
+	
+
+<div class="ui segment" style="min-width: 40%; margin-bottom: 3vw;" >
+     <h2 style="text-align: center ;">Report Found Pet</h2>
+    <form class="ui form" method="POST" enctype="multipart/form-data" action="{% url 'report-found-pet-page' %}">
+     {% csrf_token %}
+            <div class="field1">
+              
+              <input type="text" name="animal_found" placeholder="Animal"  required="">
+ 
+
+            </div>
+
+
+            <div class="field2">
+            
+              <label><b>Found date:</b></label><input type="date" name="date_found" required="">
+
+            </div>
+
+              <div class="field3">
+              
+              <input type="text" name="location_found" placeholder="Location" required="">
+              
+            </div>
+
+              <div class="field4">
+            
+              <textarea name="description_found" placeholder="Description within 100 words. (e.g., breed, color)." required=""></textarea>
+
+            </div>
+
+              <div class="field5">
+              
+              <label ><b>Image: &nbsp;&nbsp;&nbsp;</b></label><input type="file" name="picture_found" required="">
+              
+            </div>
+
+
+
+           
+
+            <div class="field6">
+            	<input type="tel" name="number_found" placeholder="Contact Number" required="" maxlength="11" minlength="11">
+            </div>
+
+
+
+     
+          
+            <button class="ui red fluid button" type="submit" style="font-size: 20px;">Submit</button>
+
+         
+
+           
+          
+
+            
+</form>
+</div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+

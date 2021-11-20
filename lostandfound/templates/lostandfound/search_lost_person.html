@@ -1,0 +1,246 @@
+{% extends 'lostandfound/base.html' %}
+{% block body %}
+{% load static %}
+
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+
+<style type="text/css">
+  
+ h1
+ {
+   text-align: center;
+   font-family: 'Arial';
+   font-size: 35px;
+ }
+
+ * {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  margin-top: 1vw;
+  padding: 15px;
+  font-size: 17px;
+  border: 1px solid grey;
+  width: 80%;
+  background: white;
+}
+
+form.example button {
+  float: left;
+  width: 45%;
+  padding: 10px;
+  background: black;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  margin-top: 1vw;
+  margin-left: 15vw;
+}
+
+form.example button:hover {
+  background: #008080;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+ .top
+{
+  margin-top: 2vw;
+  padding: 5px;
+  border-bottom: 1px solid grey;
+  background-color: rgb(240, 240, 240);
+
+}
+
+.input-feilds
+{
+  display: flex;
+  
+
+}
+.gen
+{
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  margin-top: 1vw;
+  margin-left: 9vw;
+}
+
+#male, #female, #others
+{
+  margin-left: 10px;
+}
+.input-feilds
+{
+  width: 40vw;
+  margin-right: 10vw;
+
+}
+
+.age
+{
+  display: flex;
+  margin-top: 1vw;
+
+}
+#min
+{
+  margin-right: 1vw;
+}
+#box
+{
+  margin-right: 1vw;
+}
+
+</style>
+
+<div class="top">
+
+
+    <div style="margin-right: 20vw; margin-left: 1vw;" >
+    <h6><a href="{% url 'home-page-2' %}" class="w3-button w3-red w3-padding-large w3-large  w3-left">Go back</a></h6>
+    <h6><a href="{% url 'search-lost-person-page' %}" class="w3-button w3-green w3-padding-large w3-large  w3-left">Refresh</a></h6>
+      <h1>Search Lost Persons</h1>
+  </div> 
+
+
+
+
+
+
+  <form class="example" action="{% url 'search-lost-person-page' %}" enctype="multipart/form-data" style="margin:auto;max-width:300px;">
+      {% csrf_token %}
+      <div class="input-feilds">
+           <input type="text" placeholder="Name of the person" name="search_person_name" id="box">
+           <input type="text" placeholder="Location" name="search_person_location" id="box">
+     
+      </div> 
+
+        <div class="age">
+           
+           <input type="number" name="age_min" placeholder="Minimum Age"  id="min" required="">
+           <input type="number" name="age_max" placeholder="Maximum Age"  required="">
+
+         </div> 
+
+       <div class="gen">
+
+           
+              <span><b>Gender:</b></span>
+                    <input type="radio" id="male" name="search_per_gender" value="Male" required="">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="search_per_gender" value="Female">
+                    <label for="female">Female</label><br>
+                    <input type="radio" id="others" name="search_per_gender" value="Others">
+                    <label for="others">Others</label>
+                    
+             
+
+            </div>
+
+         
+          
+            
+          <button type="submit"><i class="fa fa-search">Search</i></button>
+      
+   
+  </form>
+
+ 
+
+</div>
+
+ 
+
+
+<hr>
+
+
+
+{% for r in reports %}
+
+<div class="ui link  cards" >
+  <div class="card" style="width: 40vw; margin-left: 30vw;">
+
+       
+
+    <div class="image" style="display: flex; justify-content: center;">
+
+      {% if r.per_picture_lost %}
+        <img class="rounded-circle account-img" src="{{ r.per_picture_lost.url }}" style="width: 100%;">
+      {% else %}
+                <p>No picture</p>
+      {% endif %}    
+    </div>
+    <div class="content">
+      <div class="header" style="text-align:center;">{{ r.per_name_lost }}</div>
+      {% if r.per_reward_lost %}
+      <div class="header">Reward (BDT): {{ r.per_reward_lost }}</div>
+      {% endif %} 
+       <div class="gender">
+         <div class="description">
+          <h3>
+               Age: {{ r.per_age_lost }}. &nbsp;&nbsp;&nbsp;
+               {{ r.per_gender_lost }}
+
+          </h3>
+       
+
+      </div>
+      </div>
+      <div class="meta">
+        <a>Last seen on {{ r.per_date_lost }}.</a>
+        <a>Location: {{ r.per_location_lost }}.</a>
+      </div>
+      <div class="description">
+        {{ r.per_description_lost }}
+      </div>
+    </div>
+    <div class="extra content">
+     
+      <span>
+        <i class="user icon"></i>
+        <a> Please Contact </a>
+        <br>
+        <br>
+        <div class="meta">
+        <a>Name: {{ r.uploader.first_name }} {{ r.uploader.last_name }}</a>
+        <br><br>
+      </div>
+        <div class="meta">
+        <a>Email: {{ r.uploader.email }}</a>
+        <br><br>
+      </div>
+        <div class="meta">
+        <a>Phone: {{ r.per_number_lost }}</a>
+      </div>
+
+      <span class="right floated">
+        Posted on {{ r.per_post_date_lost }}
+      </span>
+        
+      </span>
+    </div>
+  </div>
+
+
+</div>
+
+ 
+  {% endfor %}  
+
+
+
+{% endblock body %}

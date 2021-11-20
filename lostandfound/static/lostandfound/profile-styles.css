@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: black;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: white;
+  color: black;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.box
+{
+  display: flex;
+  justify-content: center;
+  margin-top: 5vw;
+  font-size: 18px;
+
+}
+
+h1
+{
+  text-align: center;
+}
+.sidebar
+{
+  text-align: center;
+
+}
+.active
+{
+  font-size: 18px;
+
+}
+
+.card
+{
+  margin-left: 25vw;
+  margin-top: 5vw;
+  padding: 50px;
+  
+  
+}
+.sidebar
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1
+{
+  margin-bottom: 5vw;
+}

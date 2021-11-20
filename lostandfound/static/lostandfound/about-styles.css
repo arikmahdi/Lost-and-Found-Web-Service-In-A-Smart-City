@@ -1,0 +1,27 @@
+     
+.about-body
+{
+     margin-top: 5vw;
+     margin-left: 3vh;
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 5vh;
+
+}
+
+.left
+{
+     width: 60vh;
+     margin-left: 3vh;
+     font-size: 15px;
+    text-align: justify;
+    
+}
+
+.b4_footer
+{
+  width: 40vw;
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+}

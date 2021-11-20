@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Report Lost Object</title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<style type="text/css">
+
+body
+{
+	height: 150vh; 
+	display: flex;  
+    background-color: rgb(240, 240, 240);
+
+}
+
+
+.field7
+{
+  display: flex;
+  
+}
+
+.field2
+{
+  display: flex;
+  align-items: center;
+
+}
+#male, #female, #others
+{
+  margin-left: 20px;
+}
+
+
+.field1, .field2 , .field3, .field4,  .field5, .field6, .field7, .field8, .field9
+{
+  margin-bottom: 2vw;
+  font-size: 14px;
+}
+
+
+}
+
+
+
+</style>
+
+
+
+<body>
+
+	
+<div style="margin-right: 20vw; margin-left: 1vw; margin-top: 1vw">
+		<h6><a href="{% url 'home-page-2' %}" class="w3-button w3-green w3-padding-large w3-large  w3-left">Cancel</a></h6>
+	</div>	
+	
+
+	
+
+<div class="ui segment" style="min-width: 40%; margin-bottom: 3vw;" >
+     <h2 style="text-align: center ;">Report Lost Person</h2>
+    <form class="ui form" method="POST" enctype="multipart/form-data" action="{% url 'report-lost-person-page' %}">
+     {% csrf_token %}
+            <div class="field1">
+              
+              <input type="text" name="per_name_lost" placeholder="Name"  required="">
+
+            </div>
+
+            <div class="field2">
+
+           
+              <span><b>Select Gender:</b></span>
+                    <input type="radio" id="male" name="per_gender_lost" value="Male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="per_gender_lost" value="Female">
+                    <label for="female">Female</label><br>
+                    <input type="radio" id="others" name="per_gender_lost" value="Others">
+                    <label for="others">Others</label>
+             
+
+            </div>
+ 
+            
+
+            <div class="field3">
+              
+              <input type="number" name="per_age_lost" placeholder="Age"  required="">
+
+            </div>
+
+
+
+            <div class="field4">
+            
+              <label><b>Lost date:</b></label><input type="date" name="per_date_lost" required="">
+
+            </div>
+
+              <div class="field5">
+              
+              <input type="text" name="per_location_lost" placeholder="Location" required="">
+              
+            </div>
+
+              <div class="field6">
+            
+              <textarea name="per_description_lost" placeholder="Description within 100 words. (e.g., height, complexion or others)." required=""></textarea>
+
+            </div>
+
+              <div class="field7">
+              
+              <label ><b>Image: &nbsp;&nbsp;&nbsp;</b></label><input type="file" name="per_picture_lost" >
+              
+            </div>
+
+
+
+             <div class="field8">
+              
+              <input type="text" name="per_reward_lost" placeholder="Reward (Optional)" >
+              
+            </div>
+
+            <div class="field9">
+            	<input type="tel" name="per_number_lost" placeholder="Contact Number" required="" maxlength="11" minlength="11">
+            </div>
+
+
+
+     
+          
+            <button class="ui red fluid button" type="submit" style="font-size: 20px;">Submit</button>
+
+         
+
+           
+          
+
+            
+</form>
+</div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+

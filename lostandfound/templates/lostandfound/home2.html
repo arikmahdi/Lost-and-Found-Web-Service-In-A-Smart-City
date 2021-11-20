@@ -1,0 +1,27 @@
+{% extends 'lostandfound/base.html' %}
+{% block body %}
+{% load static %}
+
+<header class="w3-display-container w3-wide" id="home">
+    <img src="{% static 'lostandfound/images/home/oceans.jpg' %}" style="width:100%;min-height:350px;max-height:500px;">
+    <div class="w3-display-left w3-padding-large">
+
+      <div class="text-image">
+         <h1 class="w3-text-black"><b>Welcome to</h1>
+         <h1 class="w3-text-black w3-hide-small">Lost & Found Web Service</b></h1>
+      </div>
+
+     
+
+     <!--  <h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">Sign Up</button></h6> -->
+
+      <h6><a href="{% url 'signout' %}" class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off">Sign Out</a></h6>
+
+  
+
+  </header>
+
+
+{% endblock body %}
+</body>
+</html>

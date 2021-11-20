@@ -1,0 +1,127 @@
+{% extends 'lostandfound/base.html' %}
+{% block body %}
+{% load static %}
+
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+
+<style type="text/css">
+  
+ h1
+ {
+   text-align: center;
+   margin-top: 5vw;
+   font-family: 'Arial';
+   font-size: 35px;
+ }
+
+  .btn
+ {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 1vw;
+ }
+
+
+
+
+
+</style>
+
+<div style="margin-right: 20vw; margin-left: 1vw; margin-top: 5vw">
+    <h6><a href="{% url 'profile-page' %}" class="w3-button w3-green w3-padding-large w3-large  w3-left">Go back</a></h6>
+  </div>  
+
+
+<h1>My Found Pets</h1>
+<hr>
+
+
+
+
+
+{% for r in reports %}
+
+{% if user == r.uploader%}
+
+<div class="ui link  cards" >
+  <div class="card" style="width: 40vw; margin-left: 30vw;">
+
+        
+        
+
+
+    <div class="image" style="display: flex; justify-content: center;">
+
+      {% if r.picture_found %}
+        <img class="rounded-circle account-img" src="{{ r.picture_found.url }}" style="width: 70%;">
+      {% else %}
+                <p>No picture</p>
+      {% endif %}    
+    </div>
+    <div class="content">
+      <div class="header" style="text-align:center;">{{ r.animal_found }}</div>
+    
+      <div class="meta">
+        <a>Found on {{ r.date_found }}.
+        <a>Location: {{ r.location_found }}.</a>
+      </div>
+      <div class="description">
+        {{ r.description_found }}
+      </div>
+    </div>
+    <div class="extra content">
+     
+      <span>
+        <i class="user icon"></i>
+        <a> Founder's info </a>
+        <br>
+        <br>
+        <div class="meta">
+        <a>Name: {{ r.uploader.first_name }} {{ r.uploader.last_name }}</a>
+        <br><br>
+      </div>
+        <div class="meta">
+        <a>Email: {{ r.uploader.email }}</a>
+        <br><br>
+      </div>
+        <div class="meta">
+        <a>Phone: {{ r.number_found }}</a>
+      </div>
+
+      <span class="right floated">
+        Posted on {{ r.post_date_found }}
+      </span>
+        
+      </span>
+    </div>
+
+       <div class="btn">
+
+      <a href="{% url 'edit-found-pet-page' r.id %}"><p style="text-align: center; padding-top: 5p;"><button class="ui green big  button" >Edit</button></p></a>
+
+       <a href="{% url 'delete-found-pet-page' r.id %}"><p style="text-align: center; padding-top: 5p;"><button class="ui red big  button" >Delete</button></p></a>
+  
+      
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+  
+
+
+   {% endif %}
+
+
+  {% endfor %}  
+
+
+
+{% endblock body %}

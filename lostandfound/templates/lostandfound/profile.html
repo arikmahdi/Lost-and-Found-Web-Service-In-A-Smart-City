@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="{% static 'lostandfound/profile-styles.css' %}">
+</head>
+<body>
+
+
+
+<div class="sidebar">
+  <a class="active" href="{% url 'home-page-2' %}">Home</a>
+  <a href="{% url 'my-found-object-page' %}">My Found Object Report</a>
+  <a href="{% url 'my-found-person-page' %}">My Found Person Report</a>
+  <a href="{% url 'my-found-pet-page' %}">My Found Pet Report</a>
+  <a href="{% url 'my-lost-object-page' %}">My Lost Object Report</a>
+  <a href="{% url 'my-lost-person-page' %}">My Lost Person Report</a>
+  <a href="{% url 'my-lost-pet-page' %}">My Lost Pet Report</a>
+  <a class="active" href="{% url 'signout' %}">Log Out</a>
+
+</div>
+
+<div class="content">
+
+  
+
+ <div class="card" style="background-color: rgb(240, 240, 240);">
+  
+  <h1>My Profile</h1>
+  <i class="fa fa-user" style='font-size:30px;'> {{ user}}</i>
+  <div class="container">
+    <p><b>Name:</b> {{ user.first_name }} {{ user.last_name }}</p> 
+    <p><b>Email:</b> {{ user.email }}</p> 
+  </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+

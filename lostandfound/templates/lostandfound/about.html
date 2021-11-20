@@ -1,0 +1,49 @@
+{% extends 'lostandfound/base0.html' %}
+{% block body %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lost & Found Web Service|About us</title>
+<link rel="stylesheet" type="text/css" href="{% static 'lostandfound/about-styles.css' %}">
+</head>
+
+
+
+
+
+
+
+
+
+<div class="about-body">
+  
+  <div class="left">
+     <h1>About Us</h1>
+
+     <p>Lost and Found Web Service is an entirely new intelligent lost and found matching system & inventory management application all in one. Lost and Found provides for the care, restitution and destruction of unclaimed, lost, or abandoned property. The goal of Lost and Found Web Service is to ensure all lost items are returned to their rightful owner in a timely and efficient manner. We know losing or misplacing your property can be frustrating and become such a hassle to find. At Lost and Found Web Service we answer that by providing an intelligent lost and found matching system, which automatically identifies, matches, and pairs recently lost or found items with one another. This helps to maximize reach and gives users a higher rate of success when attempting to locate and find lost property. Did you lose or find something? Click below to submit a lost or found item.</p>
+</div>
+
+
+<div style=" margin-left: 10vw;">
+   <img src="{% static 'lostandfound/images/home/about.jpg' %}" style="width:85%; height: 80vh;">
+ </div>      
+  
+</div>
+ 
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+  <div class="b4_footer">
+    <a href="{% url 'home-page' %}">Home</a>
+    <a href="{% url 'about-page' %}">About Us</a>
+    <a href="{% url 'team-page' %}">Team</a>
+    <a href="{% url 'signin-page' %}">Login</a>
+  </div>
+
+
+</body>
+</html>
+
+
+{% endblock body %}

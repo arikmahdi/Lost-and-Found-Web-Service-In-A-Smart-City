@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>log in to lost and found web service</title>
+</head>
+
+<style type="text/css">
+     
+
+.link
+{
+  color: red;
+  display: flex;
+  justify-content: center;
+  margin-top: 1vw;
+  font-size: 20px;
+
+
+}
+
+
+
+</style>
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+
+
+<body style="height: 100vh;">
+  <div style="display:flex; justify-content:center;">
+     <img src="{% static 'lostandfound/images/form/logo_new.jpg' %}" style="width:20%;">
+  </div>
+ 
+  
+
+ <div style="display: flex; justify-content: center; align-items: center;">
+
+  <div class="ui black segment" style="min-width: 30%;">
+
+     <h2 style="text-align: center ;">Sign in to Lost & Found Web Service</h2>
+    <form class="ui form" method="POST" action="{% url 'signin-page' %}">
+     {% csrf_token %}
+            <div class="field">
+              
+              <input type="text" name="user" placeholder="User Name">
+            </div>
+            <div class="field">
+            
+              <input type="password" name="pass" placeholder="Password">
+            </div>
+            
+
+          
+            {% for m in messages %}
+
+            <p class="ui red message">{{ m }}</p>
+
+            {% endfor %}
+          
+            <button class="ui black fluid button" type="submit" style="font-size: 20px;">Log in</button>
+            <a class="link" href="{% url 'signup-page' %}">Create Account</a>
+
+            
+</form>
+</div>
+   
+ </div>
+
+
+
+
+</body>
+
+</html>

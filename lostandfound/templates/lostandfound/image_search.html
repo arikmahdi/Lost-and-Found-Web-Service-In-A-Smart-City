@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Report Lost Object</title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<style type="text/css">
+
+body
+{
+	height: 50vh; 
+	display: flex;  
+    background-color: rgb(240, 240, 240);
+
+}
+
+
+
+ .field7
+{
+  display: flex;
+  margin-bottom: 2vw;
+  font-size: 14px;
+}
+
+
+
+
+</style>
+
+
+
+<body>
+
+	
+<div style="margin-right: 20vw; margin-left: 1vw; margin-top: 1vw">
+		<h6><a href="{% url 'search-lost-person-page' %}" class="w3-button w3-red w3-padding-large w3-large  w3-left">Cancel</a></h6>
+	</div>	
+	
+
+	
+
+<div class="ui segment" style="min-width: 40%; margin-bottom: 3vw;" >
+     <h2 style="text-align: center ;">Search Lost Person With Image</h2>
+    <form class="ui form" method="POST" enctype="multipart/form-data" action="{% url 'report-lost-person-page' %}">
+     {% csrf_token %}
+           
+
+              <div class="field7">
+              
+              <label ><b>Image: &nbsp;&nbsp;&nbsp;</b></label><input type="file" name="per_picture_lost" >
+              
+               </div>
+
+
+
+
+     
+          
+            <button class="ui green fluid button" type="submit" style="font-size: 20px;">Search</button>
+
+         
+
+           
+          
+
+            
+</form>
+</div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+

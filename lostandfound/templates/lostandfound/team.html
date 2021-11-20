@@ -1,0 +1,96 @@
+{% extends 'lostandfound/base0.html' %}
+{% block body %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lost & Found Web Service|Team</title>
+<link rel="stylesheet" type="text/css" href="{% static 'lostandfound/team-styles.css' %}">
+</head>
+
+
+  
+
+	<!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+  
+   <div class="team">
+      <h1 style="font-weight: bold;">OUR TEAM</h1>
+      <p>Meet the team - Group C4</p>
+   </div>
+ 
+
+
+  <div class="row1"><br>
+
+      <div class="w3-quarter">
+        <img src="{% static 'lostandfound/images/team/sakib.jpg' %}"  style="width:20%" class="w3-circle w3-hover-opacity">
+        <h4>Awlad Hossain Nuri</h4>
+        <p>Dept. of CSE</p>
+        <p>United International University</p>
+
+      </div>
+
+       <div class="w3-quarter">
+        <img src="{% static 'lostandfound/images/team/shuchi.jpg.' %}"  style="width:20%" class="w3-circle w3-hover-opacity">
+        <h4>Tahsina Ferdous Shuchi</h4>
+        <p>Dept. of CSE</p>
+        <p>United International University</p>
+      
+      </div>
+
+
+      <div class="w3-quarter">
+        <img src="{% static 'lostandfound/images/team/shahadat.png' %}"  style="width:20%" class="w3-circle w3-hover-opacity">
+        <h4>Md. Shahadat Ali</h4>
+        <p>Dept. of CSE</p>
+        <p>United International University</p>
+      </div>
+
+      </div> 
+
+      <div class="row2">
+        
+      
+      <div class="w3-quarter" >
+        <img src="{% static 'lostandfound/images/team/fardeen.png' %}"  style="width:20%" class="w3-circle w3-hover-opacity">
+        <h4>Fardeen Salamat</h4>
+        <p>Dept. of CSE</p>
+        <p>United International University</p>
+      </div>
+
+     
+
+      <div class="w3-quarter" >
+        <img src="{% static 'lostandfound/images/team/mahadi.jpg' %}"  style="width:20%" class="w3-circle w3-hover-opacity">
+        <h4>Abdullah Al Mahdi</h4>
+        <p>Dept. of CSE</p>
+        <p>United International University</p>
+       </div> 
+  </div>
+
+  </div>
+
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+
+  <div class="b4_footer">
+
+    <a href="{% url 'home-page' %}">Home</a>
+    <a href="{% url 'about-page' %}">About Us</a>
+    <a href="{% url 'team-page' %}">Team</a>
+    <a href="{% url 'signin-page' %}">Login</a>
+  
+  </div>
+
+
+
+
+</body>
+
+
+</html>
+
+{% endblock body %}

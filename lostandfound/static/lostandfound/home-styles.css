@@ -1,0 +1,60 @@
+
+  
+  .main-text
+{
+
+  margin-bottom: 5vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  background-color: rgb(240, 240, 240);
+  font-size: 20px;
+  font-family: Arial;
+
+}
+
+.main-text h2
+{
+  text-align: center;
+  font-weight: bold;
+}
+
+.b4_footer
+{
+  width: 40vw;
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+}
+
+li:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.ulist
+{
+    list-style: none; 
+    display: flex; 
+    flex-direction: column;
+
+
+
+}
+
+.slideshow
+{
+  display: flex;
+}
+
+#link
+{
+  color: grey;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+
+
+
+
+
+

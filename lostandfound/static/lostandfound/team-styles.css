@@ -1,0 +1,40 @@
+  .row1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
+
+  .row2
+  {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .w3-quarter
+  {
+
+    border: 1px solid darkgrey;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 3px 2px 2px #C0C0C0 ;
+    padding: 30px;
+    border-radius: 50%
+  }
+
+  .b4_footer
+  {
+    width: 40vw;
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+  }
+
+  .team
+  {
+    color: grey;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 3px 2px 2px #C0C0C0 ;
+    font-family: arial;
+    font-size: 20px;
+
+  }

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Report Lost Object</title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<style type="text/css">
+
+body
+{
+	height: 150vh; 
+	display: flex;  
+    background-color: rgb(240, 240, 240);
+
+}
+
+
+.field1, .field4
+{
+  display: flex;
+  
+}
+
+
+.field1, .field2 , .field3, .field4,  .field5, .field6, .field2
+{
+  margin-bottom: 2vw;
+  font-size: 14px;
+}
+
+
+p
+{
+  font-size: 12px;
+  color: red;
+}
+
+
+
+
+</style>
+
+
+
+<body>
+
+	
+<div style="margin-right: 20vw; margin-left: 1vw; margin-top: 1vw">
+		<h6><a href="{% url 'my-found-object-page' %}" class="w3-button w3-green w3-padding-large w3-large  w3-left">Go back</a></h6>
+	</div>	
+	
+
+	
+
+<div class="ui segment" style="min-width: 40%; margin-bottom: 3vw;" >
+     <h2 style="text-align: center ;">Edit Found Object Report</h2>
+    <form class="ui form" method="POST" enctype="multipart/form-data" action="{% url 'edit-found-object-page' old_post.id %}">
+     {% csrf_token %}
+            <div class="field1">
+              
+              <input type="text" name="obj_item_found" placeholder="Item"  required="" value="{{ old_post.obj_item_found }}">
+ 
+
+            </div>
+
+
+             <p>Previouly added date: {{ old_post.obj_date_found }}</p>
+
+            <div class="field2">
+              
+              <label><b>Date: &nbsp;</b></label><input type="date" name="obj_date_found"   required="">
+
+            </div>
+
+              <div class="field3">
+              
+              <input type="text" name="obj_location_found" placeholder="Location" required="" value="{{ old_post.obj_location_found }}">
+              
+            </div>
+
+              <div class="field4">
+            
+              <textarea name="obj_description_found" placeholder="Description within 100 words. (e.g., brand, model, color)." required="">{{ old_post.obj_description_found }}</textarea>
+
+            </div>
+
+              <div class="field5" style="width: 40vw">
+              
+              <!-- <label ><b>Image: &nbsp;&nbsp;&nbsp;</b></label><input type="file" name="obj_picture_found" required="">
+               -->
+
+                {% if old_post.obj_picture_found %}
+                      <img class="rounded-circle account-img" src="{{ old_post.obj_picture_found.url }}" style="width: 30%;">
+                  {% else %}
+                              <p>No image</p>
+                  {% endif %}  
+
+
+            </div>
+
+
+
+          
+
+            <div class="field6">
+            	<input type="tel" name="obj_number_found" placeholder="Contact Number" required="" maxlength="11" minlength="11" value="{{ old_post.obj_number_found }}">
+            </div>
+
+
+
+     
+          
+            <button class="ui green fluid button" type="submit" style="font-size: 20px;">Save Changes</button>
+
+         
+
+           
+          
+
+            
+</form>
+</div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
